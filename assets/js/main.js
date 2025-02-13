@@ -1,12 +1,4 @@
 
-/**
-* Template Name: MyResume
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
@@ -228,38 +220,3 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
-
-/*----------------------------------------------------form-------------------------------------------------------------------*/ 
-
-/*document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contact-form");
-  const loading = document.getElementById("loading");
-  const errorMessage = document.getElementById("error-message");
-  const sentMessage = document.getElementById("sent-message");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
-
-    // Show loading animation
-    loading.style.display = "block";
-    errorMessage.style.display = "none";
-    sentMessage.style.display = "none";
-
-    // Simulate form submission (Replace with actual AJAX request)
-    setTimeout(() => {
-      loading.style.display = "none";
-
-      // Simulating a successful response
-      const success = Math.random() > 0.2; // 80% chance of success
-
-      if (success) {
-        sentMessage.style.display = "block";
-        form.reset();
-      } else {
-        errorMessage.style.display = "block";
-        errorMessage.innerText = "Failed to send message. Please try again.";
-      }
-    }, 2000);
-  });
-});
-*/
