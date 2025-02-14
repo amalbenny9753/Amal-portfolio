@@ -519,29 +519,30 @@
           
 
           <div class="col-lg-8">
-            <form id="submit-form" class="custom-contact-form" b>
+            <form id="submit-form" class="custom-contact-form">
               <div class="row gy-4">
           
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required >
+                  <input type="text" id="name" class="form-control" placeholder="Your Name" >
+                  <span class="error" id="nameError">Name is required!</span>
                 </div>
           
                 <div class="col-md-6">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required >
+                  <input type="email" class="form-control" id="email" placeholder="Your Email" >
+                  <span class="error" id="emailError">Valid email is required!</span>
                 </div>
           
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required >
+                  <input type="text" class="form-control" id="subject" placeholder="Subject"  >
+                  <span class="error" id="subjectError">Subject is required!</span>
                 </div>
           
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required ></textarea>
+                  <textarea class="form-control" id="message" rows="6" placeholder="Message"  ></textarea>
+                  <span class="error" id="messageError">You have to write Something!</span>
                 </div>
           
                 <div class="col-md-12 text-center">
-                  <div id="error-message" class="error-message" style="display: none;"></div>
-                  <div id="sent-message" class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
-          
                   <button type="submit">Send Message</button>
                 </div>
           
@@ -591,29 +592,6 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Main JS File -->
-  
-
-
-  <script>
-    $("#submit-form").submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbwUFp4d729TaVjS1fzhF1NaxtTm80Iebut2T6nqyKvTPsD9RwkXKj7pGHwkNpL7z81i/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (err){
-                alert("Something Error")
-
-            }
-        })
-    })
-</script>
 <script src="assets/js/main.js"></script>
 </body>
 
