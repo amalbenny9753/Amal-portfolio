@@ -220,3 +220,57 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/*form section*/
+        let nameInput = document.getElementById("name");
+        let nameError = document.getElementById("nameError");
+
+        let emailInput = document.getElementById("email");
+        let emailError = document.getElementById("emailError");
+        let emailCheck = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+
+        let subjectInput = document.getElementById("subject");
+        let subjectError = document.getElementById("subjectError");
+
+        let messageInput = document.getElementById("message");
+        let messageError = document.getElementById("messageError");
+        
+        let form =  document.getElementById("submit-form");
+        form.addEventListener("submit", function (event) {
+            if (nameInput.value.trim() === "") {
+                nameError.style.visibility = "visible";
+                //nameError.style.display = "inline"; //Show error if empty
+                event.preventDefault(); // Prevent form submission
+            }
+
+            if (!emailInput.value.match(emailCheck)) {
+                emailError.style.visibility = "visible";
+                //nameError.style.display = "inline"; //Show error if empty
+                event.preventDefault(); // Prevent form submission
+            }
+
+
+            if (subjectInput.value.trim() === "") {
+                subjectError.style.visibility = "visible";
+                //nameError.style.display = "inline"; //Show error if empty
+                event.preventDefault(); // Prevent form submission
+            }
+
+
+            if (messageInput.value.trim() === "") {
+                messageError.style.visibility = "visible";
+                //nameError.style.display = "inline"; //Show error if empty
+                event.preventDefault(); // Prevent form submission
+            }
+
+
+        });
+
+        nameInput.addEventListener("input", function () {
+            //nameError.style.display = "none"; // Hide error when user starts typing
+            nameError.style.visibility = "hidden"; // Hide error when user starts typing
+            emailError.style.visibility = "hidden"; // Hide error when user starts typing
+            subjectError.style.visibility = "hidden"; // Hide error when user starts typing
+            messageError.style.visibility = "hidden"; // Hide error when user starts typing
+        });
+
