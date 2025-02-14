@@ -983,6 +983,12 @@ section,
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+        .error {
+            color: red;
+            font-size: 14px;
+           /*display: none; /* Hide initially */
+           visibility: hidden;
+        }
 .contact .info-item+.info-item {
   margin-top: 40px;
 }
