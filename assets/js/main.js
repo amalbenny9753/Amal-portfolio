@@ -222,55 +222,63 @@
 })();
 
 /*form section*/
-        let nameInput = document.getElementById("name");
-        let nameError = document.getElementById("nameError");
+       <script>
+    let nameInput = document.getElementById("name");
+    let nameError = document.getElementById("nameError");
 
-        let emailInput = document.getElementById("email");
-        let emailError = document.getElementById("emailError");
-        let emailCheck = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+    let emailInput = document.getElementById("email");
+    let emailError = document.getElementById("emailError");
+    let emailCheck = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-        let subjectInput = document.getElementById("subject");
-        let subjectError = document.getElementById("subjectError");
+    let subjectInput = document.getElementById("subject");
+    let subjectError = document.getElementById("subjectError");
 
-        let messageInput = document.getElementById("message");
-        let messageError = document.getElementById("messageError");
-        
-        let form =  document.getElementById("submit-form");
-        form.addEventListener("submit", function (event) {
-            if (nameInput.value.trim() === "") {
-                nameError.style.visibility = "visible";
-                //nameError.style.display = "inline"; //Show error if empty
-                event.preventDefault(); // Prevent form submission
-            }
+    let messageInput = document.getElementById("message");
+    let messageError = document.getElementById("messageError");
 
-            if (!emailInput.value.match(emailCheck)) {
-                emailError.style.visibility = "visible";
-                //nameError.style.display = "inline"; //Show error if empty
-                event.preventDefault(); // Prevent form submission
-            }
+    let form = document.getElementById("submit-form");
 
+    form.addEventListener("submit", function (event) {
+        let isValid = true; // Flag to check if form is valid
 
-            if (subjectInput.value.trim() === "") {
-                subjectError.style.visibility = "visible";
-                //nameError.style.display = "inline"; //Show error if empty
-                event.preventDefault(); // Prevent form submission
-            }
+        if (nameInput.value.trim() === "") {
+            nameError.style.visibility = "visible";
+            isValid = false;
+        }
 
+        if (!emailInput.value.match(emailCheck)) {
+            emailError.style.visibility = "visible";
+            isValid = false;
+        }
 
-            if (messageInput.value.trim() === "") {
-                messageError.style.visibility = "visible";
-                //nameError.style.display = "inline"; //Show error if empty
-                event.preventDefault(); // Prevent form submission
-            }
+        if (subjectInput.value.trim() === "") {
+            subjectError.style.visibility = "visible";
+            isValid = false;
+        } 
 
+        if (messageInput.value.trim() === "") {
+            messageError.style.visibility = "visible";
+            isValid = false;
+        } 
 
-        });
+        if (!isValid) {
+            event.preventDefault(); // Prevent form submission if any field is invalid
+        }
+    });
 
-        nameInput.addEventListener("input", function () {
-            //nameError.style.display = "none"; // Hide error when user starts typing
-            nameError.style.visibility = "hidden"; // Hide error when user starts typing
-            emailError.style.visibility = "hidden"; // Hide error when user starts typing
-            subjectError.style.visibility = "hidden"; // Hide error when user starts typing
-            messageError.style.visibility = "hidden"; // Hide error when user starts typing
-        });
+    // Event listeners to hide errors when user types
+    nameInput.addEventListener("input", function () {
+        nameError.style.visibility = "hidden";
+    });
 
+    emailInput.addEventListener("input", function () {
+        emailError.style.visibility = "hidden";
+    });
+
+    subjectInput.addEventListener("input", function () {
+        subjectError.style.visibility = "hidden";
+    });
+
+    messageInput.addEventListener("input", function () {
+        messageError.style.visibility = "hidden";
+    });
